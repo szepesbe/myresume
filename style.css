@@ -131,8 +131,9 @@ svg{
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 30px;
+  overflow: hidden;
   width: 100%;
-  
   opacity: 0.2;
   z-index: 1;
 }
@@ -202,3 +203,11 @@ img{
   min-width: 100px;
   opacity: 0.9;
 }
+/* .custom-shape-divider-top-1714150745 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+} */
