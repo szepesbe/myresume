@@ -177,24 +177,22 @@ section{
 }
 
 .grid-container{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   width: 100%;
   grid-template-columns: 1fr 1fr;
-  justify-content: center;
   align-items: center;
+  padding: 0px;
+  margin: 0px;
 }
 .bal{
-  width: 50%;
-  min-width: 400px;
- 
+  width: 100%;
+  min-width: 200px;
+  z-index: 1;
 }
 .jobb{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  min-width: 400px;
+  text-align: center;
+  width: 100%;
+  min-width: 200px;
 }
 
 .profile{
@@ -202,6 +200,8 @@ section{
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   opacity: 0.8;
+  align-items: center;
+  text-align: center;
 }
 
 
