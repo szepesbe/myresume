@@ -23,6 +23,10 @@ body{
 align-items: center;  
 }
 
+section  p,h2,h1{
+  margin: 0px;
+}
+
 @media (min-width: 961px) {
 section{
   padding: 50px 5vw; 
@@ -51,7 +55,7 @@ h1 {
   background-size: cover;
 }
 .pink{
-  background: #FF0066;
+  background: #ff0066;
   min-height: 300px;
   align-items: center;
   justify-content: center;
@@ -229,9 +233,9 @@ h1 {
 
 /* Add a black background color to the top navigation */
 .topnav {
+    flex-direction: row;
   background-color: #0B4357;
   overflow: hidden;
-  align-items: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -283,4 +287,21 @@ h1 {
     display: block;
     text-align: left;
   }
+}
+@media screen and (min-width: 601px) {
+  .topnav{
+    display: flex;
+    justify-content: center;
+  }
+  
+}
+.blob-motion {
+  position: absolute;
+  transform: translateY(-0%);
+  z-index: 1;
+
+}
+.textpos{
+  z-index: 2;
+  text-align: center;
 }
