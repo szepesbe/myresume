@@ -48,25 +48,28 @@ h1 {
 .red{
   background: #F01849;
 }
-.dark{
-  background: #1a150e;
-  background-image: url('./assets/svg/blob-scene-haikei.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
 .pink{
   background: #ff0066;
-  min-height: 300px;
+  min-height: 500px;
   align-items: center;
   justify-content: center;
 
 }
-.blue2{
-  background: #00AEEF;
-  background-image: url('./assets/svg/blob-scene-haikei-upsidedown.svg');
+
+.black{
+  background: #001220;
+}
+
+.dark{
+  background: #001220;
+  background-image: url('./assets/svg/darktoyellow.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  min-height: 300px;
+  align-content: center;
+  justify-content: center;
 }
 .blue{
   background: #107ca3;
@@ -107,7 +110,7 @@ h1 {
 
 }
 
-.curve{
+/* .curve{
   position: absolute;
   height: 225px;
   width: 100%;
@@ -145,7 +148,7 @@ h1 {
   height: 85%;
   width: 100%;
   background-color: #eeeeee;
-}
+} */
 /* .wave {
   position: absolute;
   top: 0;
@@ -166,13 +169,13 @@ h1 {
   fill: #0B4357;
 }
  */
-/* .spacer{
-  aspect-ratio: 960/300;
+.spacer{
+  aspect-ratio: 900/200;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-} */
+}
 
 .redtopink{
   background-image: url('./assets/svg/redtopink.svg');
@@ -198,16 +201,6 @@ h1 {
 }
 
 
-.layer1 {
-  background-image: url('./assets/svg/layer1.svg');
-}
-.layer2 {
-  background-image: url('./assets/svg/layer2.svg');
-}
-
-.flip {
-  transform: rotate(180deg);
-}
 
 /* Blobs SVG background image via https://haikei.app/ */
 
@@ -334,4 +327,13 @@ svg {
 svg{
   width: 100%;
   height: 100%;
+}
+
+.layer1 {
+  
+  background-image: url('./assets/svg/pinktodark.svg');
+}
+
+.flip {
+  transform: rotate(180deg);
 }
