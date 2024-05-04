@@ -59,6 +59,8 @@ h1 {
 
 .black{
   background: #001220;
+  min-height: 300px;
+  justify-content: center;
 }
 
 .dark{
