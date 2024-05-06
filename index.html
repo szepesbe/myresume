@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./cards.css" />
+    <link rel="stylesheet" href="./animation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,28 +20,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script defer src="./app.js"></script>
+    <script defer src="app.js"></script>
   </head>
   <body>
     <div class="topnav" id="myTopnav">
-      <a href="#who" class="active">Ki vagyok?</a>
-      <a href="#contact">Elérhetőség</a>
-      <a href="#education">Hol tanultam?</a>
-      <a href="#employment">Hol dolgoztam?</a>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <a class="logo hidden" href="#who" class="active">Ki vagyok?</a>
+      <a class="logo hidden" href="#contact">Elérhetőség</a>
+      <a class="logo hidden" href="#education">Hol tanultam?</a>
+      <a class="logo hidden" href="#employment">Hol dolgoztam?</a>
+      <a class="logo hidden" href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
 
     <section id="who" class="blue">
       <div class="container">
-        <div class="bal">
+        <div class="bal hidden">
           <p>Szia,</p>
           <h1>SZEPESVÁRI BENCE</h1>
           <p>vagyok.</p>
           <h2>projekt menedzser, product owner, mindenes :)</h2>
         </div>
-        <div class="jobb">
+        <div class="jobb hidden">
           <img class="profile" src="./assets/image/CV.png" alt="" />
         </div>
       </div>
@@ -51,10 +52,10 @@
     
     <section id="contact" class="pink">
       <div class="textpos">
-      <h1>Hol találsz meg?</h1>
-      <p style="text-align: center">bence.szepesvari<wbr/>@gmail.com</p>
-      <p>+36302400617</p>
-      <p>Budapest</p></div>
+      <h1 class="hidden">Hol találsz meg?</h1>
+      <p class="hidden" style="text-align: center">bence.szepesvari<wbr/>@gmail.com</p>
+      <p class="hidden">+36302400617</p>
+      <p class="hidden">Budapest</p></div>
       <svg
       class="blob-motion"
         id="visual"
@@ -84,16 +85,16 @@
     <div class="layer1 spacer"></div>
     
     <section id="education" class="black">
-      <h1>Hol tanultam?</h1>
-      <div class="textpos">
+      <h1 class="hidden">Hol tanultam?</h1>
+      <div class="textpos hidden">
       <p>Gazdasági informatika szak <br>e-business szakirány</p>
       <p>Budapesti Corvinus Egyetem <br>2004-2009</p></div>
     </section>
     
     <section id="employment" class="dark">
-      <h1>Hol dolgoztam?</h1>
+      <h1 class="hidden">Hol dolgoztam?</h1>
       <div class="card-container">
-        <div class="card">
+        <div class="card logo hidden">
           <img src="./assets/image/wecan.png" alt="" />
           <h3>WeCan Technology Zrt.</h3>
           <h4>Product owner / Test team lead</h4>
@@ -104,7 +105,7 @@
           <p class="card-footer">2021-2023</p>
         </div>
 
-        <div class="card">
+        <div class="card logo hidden">
           <img src="./assets/image/mvm.png" alt="" />
           <h3>MVM Informatika Zrt.</h3>
           <h4>Business analyst / Projekt menedzser</h4>
@@ -115,7 +116,7 @@
           <p class="card-footer">2019-2022</p>
         </div>
 
-        <div class="card">
+        <div class="card logo hidden">
           <img src="./assets/image/otp.png" alt="" />
           <h3>OTP Bank Nyrt.</h3>
           <h4>Rendszerszevező</h4>
@@ -126,7 +127,7 @@
           <p class="card-footer">2018-2019</p>
         </div>
 
-        <div class="card">
+        <div class="card logo hidden">
           <img src="./assets/image/telekom.png" alt="" />
           <h3>Magyar Telekom Nyrt.</h3>
           <h4>E-business menedzser</h4>
@@ -137,7 +138,7 @@
           <p class="card-footer">2014-2018</p>
         </div>
 
-        <div class="card">
+        <div class="card logo hidden">
           <img src="./assets/image/bca.png" alt="" />
           <h3>BCA Hungary Kft.</h3>
           <h4>IT tanácsadó</h4>
@@ -155,18 +156,24 @@
     <section id="logo" class="todark">
      
       <div class="logo-container">
-        <h1>Mi érdekel?</h1>
-      <img src="./assets/logo/HTML5.svg" alt="">
-      <img src="./assets/logo/CSS3.svg" alt="">
-      <img src="./assets/logo/Javascript.svg" alt="">
-      <img src="./assets/logo/Flutter.svg" alt="">
-      <img src="./assets/logo/Bicycle.svg" alt="">
-      <img src="./assets/logo/Travel1.svg" alt="">
-      <img src="./assets/logo/Travel2.svg" alt="">
-      <img src="./assets/logo/Hiking.svg" alt="">
-      <img src="./assets/logo/Gym.svg" alt="">
-      <img src="./assets/logo/Cafe.svg" alt="">
-      <img src="./assets/logo/Restaurant.svg" alt="">
+        <h1 class="hidden">Mi érdekel?</h1>
+
+  
+
+
+
+
+      <img class="logo hidden" src="./assets/logo/HTML5.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/CSS3.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Javascript.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Flutter.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Bicycle.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Travel1.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Travel2.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Hiking.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Gym.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Cafe.svg" alt="">
+      <img class="logo hidden" src="./assets/logo/Restaurant.svg" alt="">
       </div>
       <footer class="">
         <small> Copyright © 2024 Szepesvári Bence. All Rights Reserved. </small>

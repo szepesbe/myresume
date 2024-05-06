@@ -274,12 +274,11 @@ h1 {
   color: black;
 } */
 
-/* Add an active class to highlight the current page */
+/* Add an active class to highlight the current page 
 .topnav a.active {
-  /* background-color: #04AA6D;
-  color: white; */
-}
-
+ background-color: #04AA6D;
+  color: white;
+} */
 /* Hide the link that should open and close the topnav on small screens */
 .topnav .icon {
   display: none;
@@ -327,7 +326,7 @@ h1 {
   z-index: 2;
   text-align: center;
 }
-p,h1,h2,h3,h4,img {
+/* p,h1,h2,h3,h4,img {
   animation: fade linear both;
   animation-timeline: view();
   animation-range: entry 50% cover 50%;
@@ -343,7 +342,7 @@ p,h1,h2,h3,h4,img {
 }
 svg {
   overflow: hidden;
-}
+} */
 
 
 
