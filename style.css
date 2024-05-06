@@ -19,8 +19,24 @@ body{
   section{
   position: relative;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
 align-items: center;  
+justify-content: center;
+align-content: center;
+}
+
+.logo-container{
+  text-align: center;
+  min-height: 1000px;
+  margin-bottom: 250px;
+
+}
+
+#logo  img{
+  height: 150px;
+  width: 150px;
+  padding: 20px;
 }
 
 section  p,h2,h1{
@@ -72,6 +88,14 @@ h1 {
   min-height: 300px;
   align-content: center;
   justify-content: center;
+}
+
+.todark{
+  background: #001220;
+  background-image: url('./assets/svg/yellowtodark.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
 .blue{
   background: #107ca3;
@@ -321,10 +345,7 @@ svg {
   overflow: hidden;
 }
 
-.card-container
-{
-  margin-bottom: 250px;
-}
+
 
 svg{
   width: 100%;
