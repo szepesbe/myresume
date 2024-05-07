@@ -7,81 +7,79 @@ h1 {
 p {
   font-size: 1.5rem;
 }
-body{
-   margin: 0px;
-   padding: 0px;
-   font-family: "Prompt", sans-serif;
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Prompt", sans-serif;
   color: white;
-  /* background: #107CA3; */
+  /* background: #0b4357; */
   overflow-x: hidden;
 }
 
-  section{
+section {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-align-items: center;  
-justify-content: center;
-align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
-.logo-container{
+.logo-container {
   text-align: center;
-  min-height: 1000px;
-  margin-bottom: 250px;
-
+  margin-bottom: 150px;
 }
 
-#logo  img{
+#logo img {
   height: 150px;
   width: 150px;
   padding: 20px;
 }
 
-section  p,h2,h1{
+section p,
+h2,
+h1 {
   margin: 0px;
 }
 
 @media (min-width: 961px) {
-section{
-  padding: 50px 5vw; 
-}
-h1 {
-  font-size: 4rem;
-}
-}
-
-  
-@media (max-width: 960px) {
-  section{
-    padding: 10px 3vw; 
+  section {
+    padding: 50px 5vw;
   }
-h1 {
-  font-size: 2rem;
-}
-}
-.red{
-  background: #F01849;
+  h1 {
+    font-size: 4rem;
+  }
 }
 
-.pink{
+@media (max-width: 960px) {
+  section {
+    padding: 10px 3vw;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+.red {
+  background: #f01849;
+}
+
+.pink {
   background: #ff0066;
   min-height: 500px;
   align-items: center;
   justify-content: center;
-
 }
 
-.black{
+.black {
   background: #001220;
   min-height: 300px;
   justify-content: center;
 }
 
-.dark{
+.dark {
   background: #001220;
-  background-image: url('./assets/svg/darktoyellow.svg');
+  background-image: url("./assets/svg/darktoyellow.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
@@ -90,112 +88,49 @@ h1 {
   justify-content: center;
 }
 
-.todark{
+.todark {
   background: #001220;
-  background-image: url('./assets/svg/yellowtodark.svg');
+  background-image: url("./assets/svg/yellowtodark.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
 }
-.blue{
+.blue {
   background: #107ca3;
-  background-image: url('./assets/svg/navbar.svg');
+  background-image: url("./assets/svg/navbar.svg");
   background-size: auto 100px;
   background-repeat: no-repeat;
 }
 
-
-.white{
- 
+.white {
   background: white;
   height: 100px;
   color: black;
-  background-image: url('./assets/svg/bluetowhite.svg');
-  background-repeat: no-repeat; 
+  background-image: url("./assets/svg/bluetowhite.svg");
+  background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  justify-content: center; 
+  justify-content: center;
   padding: 10px;
   margin: 0px;
   z-index: 1;
 }
-.white > h1{
+.white > h1 {
   position: relative;
   top: 65px;
 }
 
-
-.pinktowhite{
-  background-image: url('./assets/svg/pinktowhite.svg');
+.pinktowhite {
+  background-image: url("./assets/svg/pinktowhite.svg");
   height: 100px;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
   padding: 10px;
   margin: 0px;
-
 }
 
-/* .curve{
-  position: absolute;
-  height: 225px;
-  width: 100%;
-  bottom: 0;
-}
-
-.curve::before{
-  content: '45345345';
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 55%;
-  height: 100%;
-  background-color: #000000;
-  transform: translate(85%, 60%);
- 
-}
-.curve::after {
-  content: 'Bence';
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 55%;
-  height: 100%;
-  background-color: #0093E9;
-  transform: translate(-4%, 40%); 
-  z-index: -1; 
-}
-.bubble::after{
-  content: '';
-  border-top-left-radius: 50% 100%;
-  border-top-right-radius: 50% 100%;
-  position: absolute;
-  bottom: 0;
-  height: 85%;
-  width: 100%;
-  background-color: #eeeeee;
-} */
-/* .wave {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.wave svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 79px;
-}
-
-.wave .shape-fill {
-  fill: #0B4357;
-}
- */
-.spacer{
+.spacer {
   aspect-ratio: 900/200;
   width: 100%;
   background-repeat: no-repeat;
@@ -203,57 +138,48 @@ h1 {
   background-size: cover;
 }
 
-.redtopink{
-  background-image: url('./assets/svg/redtopink.svg');
+.redtopink {
+  background-image: url("./assets/svg/redtopink.svg");
 }
 
-.bluetowhite{
-  background-image: url('./assets/svg/bluetowhite.svg');
+.bluetowhite {
+  background-image: url("./assets/svg/bluetowhite.svg");
 }
 
-.container{
+.container {
   display: inline-flex;
   flex-wrap: wrap-reverse;
   align-items: center;
   justify-content: center;
-
-
-
-.profile{
+}
+.profile {
   max-width: 200px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
-  opacity: 0.8; 
+  opacity: 0.9;
 }
 
+  /* Blobs SVG background image via https://haikei.app/ */
 
+  .blob-motion {
+    position: absolute;
+    transform: translateY(-20%);
+    z-index: 0;
+  }
 
-/* Blobs SVG background image via https://haikei.app/ */
+  .blob-content {
+    z-index: 1;
+  }
+  .blobs {
+    width: 100%;
+    background: url("./blobs.svg") no-repeat bottom / cover;
+  }
 
-.blob-motion {
-  position: absolute;
-  transform: translateY(-20%);
-  z-index: 0;
-}
-
-.blob-content {
-  z-index: 1;
-}
-.blobs {
-  width: 100%;
-  background: url('./blobs.svg') no-repeat bottom / cover;
-}
-
-
-
-
-
-}
 
 /* Add a black background color to the top navigation */
 .topnav {
-    flex-direction: row;
-  background-color: #0B4357;
+  flex-direction: row;
+  background-color: #0b4357;
   overflow: hidden;
 }
 
@@ -272,7 +198,8 @@ h1 {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
-} */
+}
+
 
 /* Add an active class to highlight the current page 
 .topnav a.active {
@@ -285,7 +212,9 @@ h1 {
 }
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -294,7 +223,9 @@ h1 {
 
 /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive a.icon {
     position: absolute;
     right: 0;
@@ -310,19 +241,17 @@ h1 {
   }
 }
 @media screen and (min-width: 601px) {
-  .topnav{
+  .topnav {
     display: flex;
     justify-content: center;
   }
-  
 }
 .blob-motion {
   position: absolute;
   transform: translateY(-0%);
   z-index: 1;
-
 }
-.textpos{
+.textpos {
   z-index: 2;
   text-align: center;
 }
@@ -344,18 +273,19 @@ h1 {
   overflow: hidden;
 } */
 
-
-
-svg{
+svg {
   width: 100%;
   height: 100%;
 }
 
 .layer1 {
-  
-  background-image: url('./assets/svg/pinktodark.svg');
+  background-image: url("./assets/svg/pinktodark.svg");
 }
 
 .flip {
   transform: rotate(180deg);
+}
+
+footer{
+  margin-top: 300px;
 }
