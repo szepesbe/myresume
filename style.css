@@ -253,9 +253,7 @@ h1 {
     opacity: 1
   }
 } */
-/* svg {
-  overflow: hidden;
-} */
+
 
 svg {
   width: 100%;
@@ -263,23 +261,37 @@ svg {
 }
 
 .layer1 {
+  display: flex;
   position: relative;
   background-image: url("./assets/svg/pinktodark.svg");
+  justify-content: center;
 }
 .budapest {
   position: absolute;
   bottom: 0px;
   opacity: 0.7;
   width: 100%;
+  max-width: 1000px;
+  view-timeline: --subjectReveal block;
+  animation-timeline: --subjectReveal;
+
+  animation-name: appear;
+  animation-range: 25% 50%;
+  animation-fill-mode: both;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
 }
 
-/* .layer1 img {
-  position: absolute;
-  
+@keyframes appear {
+  from {
+    opacity: 1;
+    transform: translateY(100%);
+  }
 
-  
-
-} */
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 .flip {
   transform: rotate(180deg);
 }
