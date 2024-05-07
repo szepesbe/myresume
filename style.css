@@ -65,6 +65,7 @@ h1 {
 }
 
 .pink {
+  position: relative;
   background: #ff0066;
   min-height: 500px;
   align-items: center;
@@ -159,19 +160,14 @@ h1 {
   opacity: 0.9;
 }
 
-.blob-motion {
-  position: absolute;
-  transform: translateY(-20%);
-  z-index: 0;
-}
 
 .blob-content {
   z-index: 1;
 }
-.blobs {
+/* .blobs {
   width: 100%;
   background: url("./blobs.svg") no-repeat bottom / cover;
-}
+} */
 
 .topnav {
   flex-direction: row;
