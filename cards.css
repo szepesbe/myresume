@@ -1,91 +1,62 @@
 :root {
-    font-size: 20px;
-  }
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-  }
-  
- /*  p {
-    margin: 0;
-  }
-  
-  p:not(:last-child) {
-    margin-bottom: 1.5em;
-  } */
-  
- /*  body {
-    font: 1em/1.618 Inter, sans-serif;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    min-height: 100vh;
-    padding: 30px;
-    margin: 0;
-    
-    color: #224;
-    background:
-      url(https://source.unsplash.com/E8Ufcyxz514/2400x1823)
-      center / cover no-repeat fixed;
-  } */
-  
-li{
-    list-style-type: none;
+  font-size: 20px;
 }
 
-  .card {
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 
-   /*  display: flex;
+li {
+  list-style-type: none;
+}
+
+.card {
+  /*  display: flex;
     flex-direction: column;
     justify-content: space-between; */
-    max-width: 500px;
-    min-height: 300px;
-    padding: 20px;
-    margin: 10px;
-  
-    border: 1px solid rgba(255, 255, 255, .25);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-  
-    backdrop-filter: blur(15px);
+  max-width: 500px;
+  min-height: 300px;
+  padding: 20px;
+  margin: 10px;
 
-    
-  }
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
-  .card img {
-    width: 100px;
-    float: left;
-    border-radius: 10px;
-    margin-right: 10px;
-  }
+  backdrop-filter: blur(15px);
+}
 
-  .card p {
-    font-size: 1rem;
-    margin-top: 5px;
-    float: right;
-  }
+.card img {
+  width: 100px;
+  float: left;
+  border-radius: 10px;
+  margin-right: 10px;
+}
 
-  .card h3, h4 {
-    margin-bottom: 0px;
-    margin-top: 0px;
-  }
+.card p {
+  font-size: 1rem;
+  margin-top: 5px;
+  float: right;
+}
 
-  
-  .card-footer {
-    font-size: 0.65em;
-    color: #446;
-  }
+.card h3,
+h4 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
 
-  .card-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 50px;
-  }
-  
+.card-footer {
+  font-size: 0.65em;
+  color: #446;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
