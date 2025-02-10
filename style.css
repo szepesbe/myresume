@@ -39,6 +39,14 @@ section {
   perspective: 1000px;
 }
 
+.toptop {
+  display: flex;
+  flex-wrap: wrap;
+}
+.hamburger {
+  display: flex;
+}
+
 .image-container {
   position: relative;
   margin: 10px 0px;
@@ -222,9 +230,31 @@ h1 {
 } */
 
 .topnav {
-  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px;
   background-color: #0b4357;
-  overflow: hidden;
+}
+
+.topright {
+  display: flex;
+}
+.toptop {
+  display: flex;
+  gap: 15px;
+}
+
+.language-switcher {
+
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.hamburger {
+  display: none; /* Alapértelmezetten rejtve */
 }
 
 .topnav a {
@@ -232,7 +262,7 @@ h1 {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 0px 16px;
   text-decoration: none;
   font-size: 17px;
 }
@@ -240,6 +270,11 @@ h1 {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+#myTopnav {
+  position: sticky;
+  top: 0;
+  z-index: 10000;
 }
 
 .topnav .icon {
@@ -258,10 +293,10 @@ h1 {
   .topnav.responsive {
     position: relative;
   }
-  .topnav.responsive a.icon {
+  .topnav.responsive .topright {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10px;
+    top: 10px;
   }
   .topnav.responsive a {
     float: none;
@@ -275,7 +310,32 @@ h1 {
 @media screen and (min-width: 601px) {
   .topnav {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 15px 10px;
+  }
+}
+
+/* Nyelvváltó reszponzív stílusok */
+@media (max-width: 600px) {
+  .language-switcher {
+    position: static;
+    order: 1;
+  }
+
+  .hamburger {
+    display: block;
+    order: 2;
+  }
+
+  .topnav {
+    justify-content: space-between;
+  }
+  .toptop {
+    flex-direction: column;
+  }
+  .lang-btn {
+    padding: 3px 10px;
+    font-size: 14px;
   }
 }
 .blob-motion {

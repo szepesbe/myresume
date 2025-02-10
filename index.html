@@ -24,26 +24,36 @@
     <script defer src="app.js"></script>
   </head>
   <body>
-    <div class="topnav" id="myTopnav">
-      <a class="" href="#who" class="active">Ki vagyok?</a>
-      <a class="" href="#contact">Elérhetőség</a>
-      <a class="" href="#education">Tanulmányok</a>
-      <a class="" href="#employment">Tapasztalat</a>
-      <a class="" href="#skills">Szakma</a>
-      <a class="" href="#hobbies">Szabadidő</a>
+    
+      <div class="topnav" id="myTopnav">
+        <div class="toptop">
+      <a class="" href="#who" class="active" data-translate="navWho">Ki vagyok?</a>
+      <a class="" href="#contact" data-translate="navContact">Elérhetőség</a>
+      <a class="" href="#education" data-translate="navEducation">Tanulmányok</a>
+      <a class="" href="#employment" data-translate="navEmployment">Tapasztalat</a>
+      <a class="" href="#skills" data-translate="navSkills">Szakma</a>
+      <a class="" href="#hobbies" data-translate="navHobbies">Szabadidő</a>
+    </div>
+    <div class="topright"><div class="language-switcher">
+        <button class="lang-btn active" data-lang="hu">HU</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <div class="hamburger">
       <a class="icon" href="javascript:void(0);" onclick="myFunction()">
         <i class="fa fa-bars"></i>
-      </a>
+      </a>  
+      </div></div>
+      
+      
     </div>
-
+    
     <section id="who" class="blue">
       <div class="container">
         <div class="bal">
-          <p class="hiddenanimation">Szia,</p>
-          <h1>SZEPESVÁRI BENCE</h1>
-          <p class="hiddenanimation">vagyok.</p>
-          <h2 class="hiddenanimation">
-            projekt menedzser, product owner, mindenes :)
+          <p class="hiddenanimation" data-translate="welcome">Szia,</p>
+          <h1 data-translate="name">SZEPESVÁRI BENCE</h1>
+          <p class="hiddenanimation" data-translate="iam">vagyok.</p>
+          <h2 class="hiddenanimation" data-translate="title">projekt menedzser, product owner, mindenes :)
           </h2>
         </div>
         <div class="jobb">
@@ -57,7 +67,7 @@
 
     <section id="contact" class="pink">
       <div class="textpos">
-        <h1 class="">Hol találsz meg?</h1>
+        <h1 class="" data-translate="contactTitle">Hol találsz meg?</h1>
         <p class="hiddenanimation" style="text-align: center">
           bence.szepesvari<wbr />@gmail.com
         </p>
@@ -98,21 +108,22 @@
     </div>
 
     <section id="education" class="black">
-      <h1 class="">Hol tanultam?</h1>
-      <div class="textpos hiddenanimation">
-        <p>Gazdasági informatika szak <br />e-business szakirány</p>
-        <p>Budapesti Corvinus Egyetem <br />2004-2009</p>
+      <div class="textpos">
+      <h1 class="" data-translate="educationTitle">Hol tanultam?</h1>
+      <p class="hiddenanimation" data-translate="educationText">
+        </p>
+        
       </div>
     </section>
 
     <section id="employment" class="dark">
-      <h1 class="">Hol dolgoztam?</h1>
+      <h1 class="" data-translate="employmentTitle">Hol dolgoztam?</h1>
       <div class="card-container">
         <div class="card logo hiddenanimation">
           <img src="./assets/image/wecan.png" alt="" />
           <h3>WeCan Technology Zrt.</h3>
-          <h4>Product owner / Test team lead</h4>
-          <p>
+          <h4 data-translate="wecanTitle">Product owner / Tesztcsapat vezető</h4>
+          <p data-translate="wecanDesc">
             Dubaji székhelyű streaming szolgáltató (agilis) fejlesztéseinek,
             valamint automatizált teszteléseinek koordinálása.
           </p>
@@ -122,8 +133,8 @@
         <div class="card logo hiddenanimation">
           <img src="./assets/image/mvm.png" alt="" />
           <h3>MVM Informatika Zrt.</h3>
-          <h4>Business analyst / Projekt menedzser</h4>
-          <p>
+          <h4 data-translate="mvmTitle">Business analyst / Projekt menedzser</h4>
+          <p data-translate="mvmDesc">
             Fejlesztésekkel kapcsolatos üzleti igények felmérése. MVM cégcsoport
             portál redesign projekt felügyelete.
           </p>
@@ -133,8 +144,8 @@
         <div class="card logo hiddenanimation">
           <img src="./assets/image/otp.png" alt="" />
           <h3>OTP Bank Nyrt.</h3>
-          <h4>Rendszerszevező</h4>
-          <p>
+          <h4 data-translate="otpTitle">Rendszerszevező</h4>
+          <p data-translate="otpDesc">
             Online számlanyitás, áruhitel és ingatlanhitel fejlesztések
             teljeskörű menedzselése, vízesés később agilis módszertan szerint.
           </p>
@@ -144,8 +155,8 @@
         <div class="card logo hiddenanimation">
           <img src="./assets/image/telekom.png" alt="" />
           <h3>Magyar Telekom Nyrt.</h3>
-          <h4>E-business menedzser</h4>
-          <p>
+          <h4 data-translate="telekomTitle">E-business menedzser</h4>
+          <p data-translate="telekomDesc">
             KKV szektorban online selfcare és sales fejlesztések menedzselése
             üzleti igényfelmérésétől élesítésig, go to market, ügyfélterelés.
           </p>
@@ -155,8 +166,8 @@
         <div class="card logo hiddenanimation">
           <img src="./assets/image/bca.png" alt="" />
           <h3>BCA Hungary Kft.</h3>
-          <h4>IT tanácsadó</h4>
-          <p>
+          <h4 data-translate="bcaTitle">IT tanácsadó</h4>
+          <p data-translate="bcaDesc">
             Üzleti igények felmérése, tervezési / fejlesztési / oktatási
             feladatok koordinálása.<br>Ügyfelek: Magyar Telekom, Paksi Erőmű, MVM
             Partner, MET-MOL, Telenor.
@@ -166,72 +177,72 @@
       </div>
     </section>
     <section id="logo" class="todark">
-      <h1 style="text-align: center">Mivel foglalkozom?</h1>
+      <h1 style="text-align: center" data-translate="skillsTitle">Mivel foglalkozom?</h1>
       <div id="skills" class="logo-container">
-        <div class="image-container" data-alt="Feladat összeírás">
+        <div class="image-container" data-alt="Feladat összeírás" data-translate="tasklisting">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Checklist.svg"
             alt="Feladat összeírás"
           />
         </div>
-        <div class="image-container" data-alt="Szervezés">
+        <div class="image-container" data-alt="Szervezés" data-translate="organizing">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Calendar.svg"
             alt="Szervezés"
           />
         </div>
-        <div class="image-container" data-alt="E&#8209;mailezés">
+        <div class="image-container" data-alt="E&#8209;mailezés" data-translate="emailing">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Email.svg"
             alt="E-mailezés"
           />
         </div>
-        <div class="image-container" data-alt="Megbeszélés">
+        <div class="image-container" data-alt="Megbeszélés" data-translate="meeting">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Videocall.svg"
             alt="Megbeszélés"
           />
         </div>
-        <div class="image-container" data-alt="Tervezés">
+        <div class="image-container" data-alt="Tervezés" data-translate="planning">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Plan.svg"
             alt="Tervezés"
           />
         </div>
-        <div class="image-container" data-alt="Specifikálás">
+        <div class="image-container" data-alt="Specifikálás" data-translate="specifying">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Confluence.svg"
             alt="Specifikálás"
           />
         </div>
-        <div class="image-container" data-alt="Prezentálás">
+        <div class="image-container" data-alt="Prezentálás" data-translate="presenting">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Meeting.svg"
             alt="Prezentálás"
           />
         </div>
-        <div class="image-container" data-alt="Kapcsolat-tartás">
+        <div class="image-container" data-alt="Kapcsolat-tartás" data-translate="communication">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Teams.svg"
             alt="Kapcsolat-tartás"
           />
         </div>
-        <div class="image-container" data-alt="Intézkedés">
+        <div class="image-container" data-alt="Intézkedés" data-translate="handling">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Call-chat.svg"
             alt="Intézkedés"
           />
         </div>
-        <div class="image-container" data-alt="Workflow kialakítás">
+        <div class="image-container" data-alt="Workflow kialakítás" data-translate="workflowdesign">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Workflow.svg"
@@ -239,21 +250,21 @@
           />
         </div>
 
-        <div class="image-container" data-alt="Ticketelés">
+        <div class="image-container" data-alt="Ticketelés" data-translate="ticketing">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Jira.svg"
             alt="Ticketelés"
           />
         </div>
-        <div class="image-container" data-alt="Feladat menedzselés">
+        <div class="image-container" data-alt="Feladat menedzselés" data-translate="taskmanagement">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Kanban.svg"
             alt="Feladat menedzselés"
           />
         </div>
-        <div class="image-container" data-alt="Agilis fejlesztés">
+        <div class="image-container" data-alt="Agilis fejlesztés" data-translate="agile">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Agile.svg"
@@ -261,86 +272,86 @@
           />
         </div>
       </div>
-      <h1 style="text-align: center">Mivel töltöm a szabadidőm?</h1>
+      <h1 style="text-align: center" data-translate="hobbiesTitle">Mivel töltöm a szabadidőm?</h1>
       <div id="hobbies" class="logo-container">
-        <div class="image-container" data-alt="Biciklizés">
+        <div class="image-container" data-alt="Biciklizés" data-translate="cycling">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Bicycle.svg"
             alt="Biciklizés"
           />
         </div>
-        <div class="image-container" data-alt="Utazás">
+        <div class="image-container" data-alt="Utazás" data-translate="travel">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Travel1.svg"
             alt="Utazás"
           />
         </div>
-        <div class="image-container" data-alt="Téli nyaralás">
+        <div class="image-container" data-alt="Téli nyaralás" data-translate="winter">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Travel2.svg"
             alt="Téli nyaralás"
           />
         </div>
-        <div class="image-container" data-alt="Túrázás">
+        <div class="image-container" data-alt="Túrázás" data-translate="hiking">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Hiking.svg"
             alt="Túrázás"
           />
         </div>
-        <div class="image-container" data-alt="Kondi">
+        <div class="image-container" data-alt="Kondi" data-translate="gym">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Gym.svg"
             alt="Kondi"
           />
         </div>
-        <div class="image-container" data-alt="Kávézás">
+        <div class="image-container" data-alt="Kávézás" data-translate="cafe">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Cafe.svg"
             alt="Kávézás"
           />
         </div>
-        <div class="image-container" data-alt="Jókat enni">
+        <div class="image-container" data-alt="Jókat enni" data-translate="food">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Restaurant.svg"
             alt="Jókat enni"
           />
         </div>
-        <div class="image-container" data-alt="HTML">
+        <div class="image-container" data-alt="HTML" data-translate="html">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/HTML5.svg"
             alt="HTML"
           />
         </div>
-        <div class="image-container" data-alt="CSS">
+        <div class="image-container" data-alt="CSS" data-translate="css">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/CSS3.svg"
             alt="CSS"
           />
         </div>
-        <div class="image-container" data-alt="Javascript">
+        <div class="image-container" data-alt="Javascript" data-translate="js">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Javascript.svg"
             alt="Javascript"
           />
         </div>
-        <div class="image-container" data-alt="NodeJS">
+        <div class="image-container" data-alt="NodeJS" data-translate="node">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/NodeJS.svg"
             alt="NodeJS"
           />
         </div>
-        <div class="image-container" data-alt="Flutter">
+        <div class="image-container" data-alt="Flutter" data-translate="flutter">
           <img
             class="logo-activity hiddenanimation"
             src="./assets/logo/Flutter.svg"
@@ -349,11 +360,12 @@
         </div>
       </div>
       <footer class="hiddenanimation">
-        <small> Copyright © 2024 Szepesvári Bence. All Rights Reserved. </small>
+        <small> Copyright © <span id="year"></span> <span data-translate="footer"></span> </small>
       </footer>
     </section>
 
     <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
       function myFunction() {
         var x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
