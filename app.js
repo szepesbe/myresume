@@ -140,70 +140,39 @@ const translations = {
     }
   };
   
-// Nyelvkezelés
-let currentLang = 'hu'; // Alapértelmezett nyelv
-
-// Nyelv beállítása az URL vagy localStorage alapján
-function detectLanguage() {
-  const path = window.location.pathname;
+  // Nyelvkezelés
+  let currentLang = localStorage.getItem('lang') || 'hu';
   
-  if (path.endsWith('/en')) {
-    currentLang = 'en';
-  } else if (path.endsWith('/hu')) {
-    currentLang = 'hu';
-  } else {
-    // Ha nincs nyelvkód az URL-ben, használjuk a localStorage értékét
-    currentLang = localStorage.getItem('lang') || 'hu';
-    updateURL(currentLang); // Az URL frissítése a megfelelő nyelvre
-  }
-
-  setLanguage(currentLang);
-}
-
-// Nyelv frissítése és mentése
-function setLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  updateURL(lang); // URL frissítése a kiválasztott nyelv szerint
-
-  // Szövegek frissítése
-  document.querySelectorAll('[data-translate]').forEach(el => {
-    if (!el.classList.contains('image-container')) { // Kizárja az image-container-t
+  function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('lang', lang);
+    
+    // Szövegek frissítése
+    document.querySelectorAll('[data-translate]').forEach(el => {
+      if (!el.classList.contains('image-container')) { // Kizárja az image-container-t
+        const key = el.getAttribute('data-translate');
+        el.innerHTML = translations[lang][key];
+      }
+    });
+  
+    // Képek alt szövegei
+    document.querySelectorAll('.image-container').forEach(el => {
       const key = el.getAttribute('data-translate');
-      el.innerHTML = translations[lang][key];
-    }
-  });
-
-  // Képek alt szövegei
-  document.querySelectorAll('.image-container').forEach(el => {
-    const key = el.getAttribute('data-translate');
-    if (translations[lang] && translations[lang][key]) {
-      el.setAttribute('data-alt', translations[lang][key]);
-    }
-  });
-
-  // Aktív gomb stílusa
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.lang === lang);
-  });
-}
-
-// URL frissítése a nyelvnek megfelelően
-function updateURL(lang) {
-  const newUrl = `${window.location.origin}/${lang}`;
-  if (window.location.pathname !== `/${lang}`) {
-    window.history.replaceState({ path: newUrl }, '', newUrl);
+      if (translations[lang] && translations[lang][key]) {
+        el.setAttribute('data-alt', translations[lang][key]);
+      }
+    });
+  
+    // Aktív gomb stílusa
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
   }
-}
-
-// Eseménykezelők a nyelvváltó gombokhoz
-document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
-});
-
-// Az oldal betöltésekor automatikusan beállítja a nyelvet
-window.onload = detectLanguage;
-
+  
+  // Eseménykezelők
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
   
   // Intersection Observer
   const observer = new IntersectionObserver((entries) => {
