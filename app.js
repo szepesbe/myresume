@@ -159,7 +159,14 @@ const translations = {
     document.querySelectorAll('[data-translate]').forEach(el => {
       if (!el.classList.contains('image-container')) { // Kizárja az image-container-t
         const key = el.getAttribute('data-translate');
-        el.innerHTML = translations[lang][key];
+        if (translations[lang] && translations[lang][key]) {
+          // Gomboknál textContent-et használunk, egyébként innerHTML-t
+          if (el.tagName === 'BUTTON') {
+            el.textContent = translations[lang][key];
+          } else {
+            el.innerHTML = translations[lang][key];
+          }
+        }
       }
     });
   
@@ -200,4 +207,10 @@ const translations = {
   });
   
   // Oldal betöltése
-  setLanguage(currentLang);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+    });
+  } else {
+    setLanguage(currentLang);
+  }
