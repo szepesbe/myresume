@@ -8,6 +8,7 @@ const translations = {
       navEmployment: "Tapasztalat",
       navSkills: "Szakma",
       navHobbies: "Szabadidő",
+      navDownload: "Letöltés",
   
       // Tartalom
       welcome: "Szia,",
@@ -19,6 +20,9 @@ const translations = {
       employmentTitle: "Hol dolgoztam?",
       skillsTitle: "Mivel foglalkozom?",
       hobbiesTitle: "Mivel töltöm a szabadidőm?",
+      downloadTitle: "Letöltés",
+      resumeLabel: "önéletrajz",
+      downloadButton: "letöltöm",
       email: "bence.szepesvari@gmail.com",
       phone: "+36302400617",
       location: "Budapest",
@@ -77,6 +81,7 @@ const translations = {
       navEmployment: "Experience",
       navSkills: "Skills",
       navHobbies: "Hobbies",
+      navDownload: "Download",
   
       // Content
       welcome: "Hi, I'm",
@@ -88,6 +93,9 @@ const translations = {
       employmentTitle: "Where did I work?",
       skillsTitle: "What do I do?",
       hobbiesTitle: "What do I do in my free time?",
+      downloadTitle: "Download",
+      resumeLabel: "Resume",
+      downloadButton: "download",
       email: "bence.szepesvari@gmail.com",
       phone: "+36302400617",
       location: "Budapest, Hungary",

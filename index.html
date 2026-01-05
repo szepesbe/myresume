@@ -20,6 +20,7 @@
     />
 
     <script src="https://cdn.jsdelivr.net/npm/kute.js@2.1.2/dist/kute.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js"></script>
     <!--     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
     <script defer src="app.js"></script>
   </head>
@@ -33,6 +34,7 @@
       <a class="" href="#employment" data-translate="navEmployment">Tapasztalat</a>
       <a class="" href="#skills" data-translate="navSkills">Szakma</a>
       <a class="" href="#hobbies" data-translate="navHobbies">Szabadidő</a>
+      <a class="" href="#download" data-translate="navDownload">Letöltés</a>
     </div>
     <div class="topright"><div class="language-switcher">
         <button class="lang-btn active" data-lang="hu">HU</button>
@@ -359,6 +361,16 @@
           />
         </div>
       </div>
+      
+      <h1 style="text-align: center" data-translate="downloadTitle">Letöltés</h1>
+      <div id="download" class="download-section">
+        <div class="download-container">
+          <h2 data-translate="resumeLabel">önéletrajz</h2>
+          <div id="qrcode"></div>
+          <button id="downloadBtn" class="download-btn" data-translate="downloadButton">letöltöm</button>
+        </div>
+      </div>
+      
       <footer class="hiddenanimation">
         <small> Copyright © <span id="year"></span> <span data-translate="footer"></span> </small>
       </footer>
@@ -383,6 +395,28 @@
         { path: "#blob2" },
         { repeat: 999, duration: 2000, yoyo: true }
       ).start();
+      
+      // QR kód generálása
+      document.addEventListener('DOMContentLoaded', function() {
+        // Teljes URL generálása a PDF fájlhoz
+        const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+        const pdfPath = baseUrl + '/assets/Szepesvari_Bence_CV_HUN_2026.pdf';
+        const qrCode = new QRCode(document.getElementById("qrcode"), {
+          text: pdfPath,
+          width: 200,
+          height: 200
+        });
+        
+        // Letöltés gomb eseménykezelő
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+          const link = document.createElement('a');
+          link.href = './assets/Szepesvari_Bence_CV_HUN_2026.pdf';
+          link.download = 'Szepesvari_Bence_CV_HUN_2026.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+      });
     </script>
   </body>
 </html>

@@ -406,3 +406,54 @@ svg {
 footer {
   margin-top: 300px;
 }
+
+.download-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  margin-bottom: 50px;
+}
+
+.download-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.download-container h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}
+
+#qrcode {
+  margin: 20px 0;
+  padding: 10px;
+  background: white;
+  border-radius: 10px;
+}
+
+.download-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-family: "Prompt", sans-serif;
+  background: #ff0066;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  text-transform: lowercase;
+}
+
+.download-btn:hover {
+  background: #e6005c;
+  transform: scale(1.05);
+}
+
+.download-btn:active {
+  transform: scale(0.95);
+}
