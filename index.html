@@ -396,45 +396,84 @@
         { repeat: 999, duration: 2000, yoyo: true }
       ).start();
       
+      // PDF fájl elérési út lekérése nyelv alapján
+      function getPdfPath(lang) {
+        if (lang === 'en') {
+          return './assets/Szepesvari_Bence_CV_EN_2026.pdf';
+        } else {
+          return './assets/Szepesvari_Bence_CV_HUN_2026.pdf';
+        }
+      }
+      
+      // PDF fájl neve lekérése nyelv alapján
+      function getPdfFileName(lang) {
+        if (lang === 'en') {
+          return 'Szepesvari_Bence_CV_EN_2026.pdf';
+        } else {
+          return 'Szepesvari_Bence_CV_HUN_2026.pdf';
+        }
+      }
+      
       // QR kód generálása
-      document.addEventListener('DOMContentLoaded', function() {
-        // Várunk, amíg a QRCode könyvtár betöltődik
-        function generateQRCode() {
-          if (typeof QRCode === 'undefined') {
-            setTimeout(generateQRCode, 100);
-            return;
-          }
-          
-          // Teljes URL generálása a PDF fájlhoz (GitHub Pages kompatibilis)
-          // Relatív URL-t használunk, amit abszolúttá alakítunk
-          const pdfRelativePath = './assets/Szepesvari_Bence_CV_HUN_2026.pdf';
-          const pdfPath = new URL(pdfRelativePath, window.location.href).href;
-          
-          try {
-            const qrCode = new QRCode(document.getElementById("qrcode"), {
-              text: pdfPath,
-              width: 200,
-              height: 200
-            });
-          } catch (error) {
-            console.error('QR kód generálási hiba:', error);
-          }
+      let qrCodeInstance = null;
+      function generateQRCode(lang) {
+        if (typeof QRCode === 'undefined') {
+          setTimeout(() => generateQRCode(lang), 100);
+          return;
         }
         
-        generateQRCode();
+        const qrContainer = document.getElementById("qrcode");
+        if (!qrContainer) return;
         
-        // Letöltés gomb eseménykezelő
+        // Töröljük a korábbi QR kódot
+        qrContainer.innerHTML = '';
+        
+        // Teljes URL generálása a PDF fájlhoz (GitHub Pages kompatibilis)
+        const pdfRelativePath = getPdfPath(lang);
+        const pdfPath = new URL(pdfRelativePath, window.location.href).href;
+        
+        try {
+          qrCodeInstance = new QRCode(qrContainer, {
+            text: pdfPath,
+            width: 200,
+            height: 200
+          });
+        } catch (error) {
+          console.error('QR kód generálási hiba:', error);
+        }
+      }
+      
+      // Letöltés gomb eseménykezelő
+      function setupDownloadButton(lang) {
         const downloadBtn = document.getElementById('downloadBtn');
         if (downloadBtn) {
-          downloadBtn.addEventListener('click', function() {
+          // Eltávolítjuk a korábbi eseménykezelőket
+          const newBtn = downloadBtn.cloneNode(true);
+          downloadBtn.parentNode.replaceChild(newBtn, downloadBtn);
+          
+          newBtn.addEventListener('click', function() {
             const link = document.createElement('a');
-            link.href = './assets/Szepesvari_Bence_CV_HUN_2026.pdf';
-            link.download = 'Szepesvari_Bence_CV_HUN_2026.pdf';
+            link.href = getPdfPath(lang);
+            link.download = getPdfFileName(lang);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
           });
         }
+      }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        // Kezdeti QR kód generálása
+        const initialLang = localStorage.getItem('lang') || 'hu';
+        generateQRCode(initialLang);
+        setupDownloadButton(initialLang);
+        
+        // QR kód frissítése nyelvváltáskor
+        // A setLanguage függvényt módosítjuk az app.js-ben, hogy hívja ezt
+        window.updateDownloadSection = function(lang) {
+          generateQRCode(lang);
+          setupDownloadButton(lang);
+        };
       });
     </script>
   </body>

@@ -182,6 +182,11 @@ const translations = {
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+    
+    // QR kód és letöltés gomb frissítése
+    if (typeof window.updateDownloadSection === 'function') {
+      window.updateDownloadSection(lang);
+    }
   }
   
   // Eseménykezelők
