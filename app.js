@@ -224,21 +224,48 @@ const translations = {
     });
   });
 
-  function playRandomIconFlip(logoContainer) {
-    const icons = [...logoContainer.querySelectorAll('.image-container')];
-    if (!icons.length) return;
+  function isIconVisibleOnScreen(el) {
+    const nav = document.getElementById('myTopnav');
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const rect = el.getBoundingClientRect();
 
-    const available = icons.filter((el) => el.dataset.autoFlipping !== 'true');
-    if (!available.length) return;
+    if (rect.width === 0 || rect.height === 0) return false;
 
-    const container =
-      available[Math.floor(Math.random() * available.length)];
-    container.dataset.autoFlipping = 'true';
+    const visibleTop = Math.max(rect.top, navHeight);
+    const visibleBottom = Math.min(rect.bottom, window.innerHeight);
+    const visibleLeft = Math.max(rect.left, 0);
+    const visibleRight = Math.min(rect.right, window.innerWidth);
 
-    const flipDelay = 1300;
+    if (visibleBottom <= visibleTop || visibleRight <= visibleLeft) return false;
+
+    const visibleArea =
+      (visibleBottom - visibleTop) * (visibleRight - visibleLeft);
+    const elementArea = rect.width * rect.height;
+
+    return visibleArea / elementArea >= 0.35;
+  }
+
+  function getVisibleIcons(logoContainer) {
+    return [...logoContainer.querySelectorAll('.image-container')].filter(
+      (el) => el.dataset.autoFlipping !== 'true' && isIconVisibleOnScreen(el)
+    );
+  }
+
+  function playRandomIconFlip(logoContainer, onSkipped) {
+    const flipDelay = 700;
     const holdDuration = 1800;
 
     setTimeout(() => {
+      const visible = getVisibleIcons(logoContainer);
+      if (!visible.length) {
+        if (typeof onSkipped === 'function') onSkipped();
+        return;
+      }
+
+      const container =
+        visible[Math.floor(Math.random() * visible.length)];
+      container.dataset.autoFlipping = 'true';
+
       setIconFlip(container, true);
       setTimeout(() => {
         setIconFlip(container, false);
@@ -247,8 +274,8 @@ const translations = {
     }, flipDelay);
   }
 
-  function initLogoSectionAutoFlip(triggerEl, logoContainer) {
-    if (!triggerEl || !logoContainer) return;
+  function initLogoSectionAutoFlip(logoContainer) {
+    if (!logoContainer) return;
 
     let canTrigger = true;
 
@@ -257,16 +284,18 @@ const translations = {
         entries.forEach((entry) => {
           if (entry.isIntersecting && canTrigger) {
             canTrigger = false;
-            playRandomIconFlip(logoContainer);
+            playRandomIconFlip(logoContainer, () => {
+              canTrigger = true;
+            });
           } else if (!entry.isIntersecting) {
             canTrigger = true;
           }
         });
       },
-      { threshold: 0.35, rootMargin: '-10% 0px -15% 0px' }
+      { threshold: 0.2, rootMargin: '-10% 0px -10% 0px' }
     );
 
-    sectionObserver.observe(triggerEl);
+    sectionObserver.observe(logoContainer);
   }
 
   function initLogoAutoFlips() {
@@ -275,8 +304,8 @@ const translations = {
     const skillsIcons = skillsTitle?.nextElementSibling;
     const hobbiesIcons = hobbiesTitle?.nextElementSibling;
 
-    initLogoSectionAutoFlip(skillsTitle, skillsIcons);
-    initLogoSectionAutoFlip(hobbiesTitle, hobbiesIcons);
+    initLogoSectionAutoFlip(skillsIcons);
+    initLogoSectionAutoFlip(hobbiesIcons);
   }
   
   // Sticky menü magassága → görgetési offset (anchor linkek, mobil + desktop)
