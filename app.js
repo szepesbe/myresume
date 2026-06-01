@@ -210,12 +210,74 @@ const translations = {
   document.querySelectorAll('.hiddenanimation').forEach(el => observer.observe(el));
   
   // Flip animációk
-  document.querySelectorAll('.image-container').forEach(container => {
+  function setIconFlip(container, flipped) {
+    const logo = container.querySelector('.logo-activity');
+    container.classList.toggle('flip', flipped);
+    if (logo) {
+      logo.classList.toggle('flip', flipped);
+    }
+  }
+
+  document.querySelectorAll('.image-container').forEach((container) => {
     container.addEventListener('click', () => {
-      container.classList.toggle('flip');
-      container.querySelector('.logo-activity').classList.toggle('flip');
+      setIconFlip(container, !container.classList.contains('flip'));
     });
   });
+
+  function playRandomIconFlip(logoContainer) {
+    const icons = [...logoContainer.querySelectorAll('.image-container')];
+    if (!icons.length) return;
+
+    const available = icons.filter((el) => el.dataset.autoFlipping !== 'true');
+    if (!available.length) return;
+
+    const container =
+      available[Math.floor(Math.random() * available.length)];
+    container.dataset.autoFlipping = 'true';
+
+    const flipDelay = 1300;
+    const holdDuration = 1800;
+
+    setTimeout(() => {
+      setIconFlip(container, true);
+      setTimeout(() => {
+        setIconFlip(container, false);
+        delete container.dataset.autoFlipping;
+      }, holdDuration);
+    }, flipDelay);
+  }
+
+  function initLogoSectionAutoFlip(triggerEl, logoContainer) {
+    if (!triggerEl || !logoContainer) return;
+
+    let canTrigger = true;
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && canTrigger) {
+            canTrigger = false;
+            playRandomIconFlip(logoContainer);
+          } else if (!entry.isIntersecting) {
+            canTrigger = true;
+          }
+        });
+      },
+      { threshold: 0.35, rootMargin: '-10% 0px -15% 0px' }
+    );
+
+    sectionObserver.observe(triggerEl);
+  }
+
+  function initLogoAutoFlips() {
+    const skillsTitle = document.getElementById('skills');
+    const hobbiesTitle = document.getElementById('hobbies');
+    const skillsIcons = skillsTitle?.nextElementSibling;
+    const hobbiesIcons = hobbiesTitle?.nextElementSibling;
+
+    initLogoSectionAutoFlip(skillsTitle, skillsIcons);
+    initLogoSectionAutoFlip(hobbiesTitle, hobbiesIcons);
+  }
   
   // Sticky menü magassága → görgetési offset (anchor linkek, mobil + desktop)
   function updateNavScrollOffset() {
@@ -290,8 +352,10 @@ const translations = {
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(currentLang);
       initNavScroll();
+      initLogoAutoFlips();
     });
   } else {
     setLanguage(currentLang);
     initNavScroll();
+    initLogoAutoFlips();
   }
