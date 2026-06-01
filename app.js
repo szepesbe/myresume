@@ -30,6 +30,8 @@ const translations = {
       footerText: "Copyright © 2024 Szepesvári Bence. Minden jog fenntartva.",
   
       // Munkatapasztalat
+      ittszabadTitle: "Termékfelelős / e2e implementáció",
+      ittszabadDesc: "Web/mobilalkalmazás folyamatainak kialakítása és implementálása az alkalmazásba. Alkalmazás tesztelése/publikálása.",
       wecanTitle: "Termékfelelős / Tesztcsapat vezető",
       wecanDesc: "Dubaji székhelyű streaming szolgáltató (agilis) fejlesztéseinek, valamint automatizált teszteléseinek koordinálása.",
       mvmTitle: "Üzleti elemző / Projekt menedzser",
@@ -55,6 +57,7 @@ const translations = {
       ticketing: "Ticketelés",
       taskmanagement: "Feladat menedzselés",
       agile: "Agilis fejlesztés",
+      vibecoding: "Vibe coding",
 
       // Hobbik
       cycling: "Biciklizés",
@@ -103,6 +106,8 @@ const translations = {
       footerText: "Copyright © 2024 Szepesvári Bence. All Rights Reserved.",
   
       // Work Experience
+      ittszabadTitle: "Product Owner / End-to-End Implementation",
+      ittszabadDesc: "Design and implementation of web/mobile application workflows within the application. Application testing and publishing.",
       wecanTitle: "Product owner / Test-team lead",
       wecanDesc: "Coordinating agile development and automated testing for a Dubai-based streaming service.",
       mvmTitle: "Business analyst / Project manager",
@@ -128,6 +133,7 @@ const translations = {
       ticketing: "Ticketing",
       taskmanagement: "Task management",
       agile: "Agile development",
+      vibecoding: "Vibe coding",
 
       // Hobbies
       cycling: "Cycling",
@@ -211,11 +217,81 @@ const translations = {
     });
   });
   
+  // Sticky menü magassága → görgetési offset (anchor linkek, mobil + desktop)
+  function updateNavScrollOffset() {
+    const nav = document.getElementById('myTopnav');
+    if (nav) {
+      document.documentElement.style.setProperty('--nav-height', `${nav.offsetHeight}px`);
+    }
+  }
+  window.updateNavScrollOffset = updateNavScrollOffset;
+
+  function getScrollOffset() {
+    updateNavScrollOffset();
+    const paddingTop = parseFloat(
+      getComputedStyle(document.documentElement).scrollPaddingTop
+    );
+    return Number.isFinite(paddingTop) ? paddingTop : 0;
+  }
+
+  function scrollToHash(hash, behavior = 'smooth') {
+    if (!hash || hash === '#') return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const offset = getScrollOffset();
+    const top =
+      window.pageYOffset + target.getBoundingClientRect().top - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior });
+  }
+  window.scrollToHash = scrollToHash;
+
+  function closeMobileNav() {
+    const nav = document.getElementById('myTopnav');
+    if (nav) {
+      nav.className = 'topnav';
+    }
+  }
+
+  function initNavScroll() {
+    updateNavScrollOffset();
+    const nav = document.getElementById('myTopnav');
+    if (nav && typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(updateNavScrollOffset).observe(nav);
+    }
+
+    document.querySelectorAll('.toptop a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const hash = link.getAttribute('href');
+        closeMobileNav();
+        // Mobil: menü bezárása után várunk egy layout-frissítésre, majd görgetünk
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            scrollToHash(hash);
+          });
+        });
+      });
+    });
+
+    window.addEventListener('resize', updateNavScrollOffset);
+    window.addEventListener('orientationchange', () => {
+      setTimeout(updateNavScrollOffset, 150);
+    });
+
+    window.addEventListener('load', () => {
+      if (location.hash) {
+        scrollToHash(location.hash, 'auto');
+      }
+    });
+  }
+
   // Oldal betöltése
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       setLanguage(currentLang);
+      initNavScroll();
     });
   } else {
     setLanguage(currentLang);
+    initNavScroll();
   }

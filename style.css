@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-height, 56px) + env(safe-area-inset-top, 0px));
 }
 h1 {
   font-size: 4rem;
@@ -290,9 +291,6 @@ h1 {
   }
 }
 @media screen and (max-width: 600px) {
-  .topnav.responsive {
-    position: relative;
-  }
   .topnav.responsive .topright {
     position: absolute;
     right: 10px;

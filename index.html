@@ -67,9 +67,9 @@
     <section class="white"></section>
     <section class="pinktowhite"></section>
 
-    <section id="contact" class="pink">
+    <section class="pink">
       <div class="textpos">
-        <h1 class="" data-translate="contactTitle">Hol találsz meg?</h1>
+        <h1 id="contact"  data-translate="contactTitle">Hol találsz meg?</h1>
         <p class="hiddenanimation" style="text-align: center">
           bence.szepesvari<wbr />@gmail.com
         </p>
@@ -109,18 +109,30 @@
       <img class="budapest" src="./assets/image/Budapest.png" alt="" />
     </div>
 
-    <section id="education" class="black">
+    <section class="black">
       <div class="textpos">
-      <h1 class="" data-translate="educationTitle">Hol tanultam?</h1>
+      <h1 id="education"  data-translate="educationTitle">Hol tanultam?</h1>
       <p class="hiddenanimation" data-translate="educationText">
         </p>
         
       </div>
     </section>
 
-    <section id="employment" class="dark">
-      <h1 class="" data-translate="employmentTitle">Hol dolgoztam?</h1>
+    <section class="dark">
+      <h1 id="employment"  data-translate="employmentTitle">Hol dolgoztam?</h1>
       <div class="card-container">
+        <div class="card logo hiddenanimation">
+          <img src="./assets/image/ittszabad.png" alt="" />
+          <h3>
+            <a href="https://ittszabad.hu" class="card-link" target="_blank" rel="noopener noreferrer">ittszabad.hu</a>
+          </h3>
+          <h4 data-translate="ittszabadTitle">Termékfelelős / e2e implementáció</h4>
+          <p data-translate="ittszabadDesc">
+            Web/mobilalkalmazás folyamatainak kialakítása és implementálása az alkalmazásba. Alkalmazás tesztelése/publikálása.
+          </p>
+          <p class="card-footer">2024-2026</p>
+        </div>
+
         <div class="card logo hiddenanimation">
           <img src="./assets/image/wecan.png" alt="" />
           <h3>WeCan Technology Zrt.</h3>
@@ -179,8 +191,8 @@
       </div>
     </section>
     <section id="logo" class="todark">
-      <h1 style="text-align: center" data-translate="skillsTitle">Mivel foglalkozom?</h1>
-      <div id="skills" class="logo-container">
+      <h1 id="skills"  style="text-align: center" data-translate="skillsTitle">Mivel foglalkozom?</h1>
+      <div class="logo-container">
         <div class="image-container" data-alt="Feladat összeírás" data-translate="tasklisting">
           <img
             class="logo-activity hiddenanimation"
@@ -273,9 +285,16 @@
             alt="Agilis fejlesztés"
           />
         </div>
+        <div class="image-container" data-alt="Vibe coding" data-translate="vibecoding">
+          <img
+            class="logo-activity hiddenanimation"
+            src="./assets/logo/Vibecoding.svg"
+            alt="Vibe coding"
+          />
+        </div>
       </div>
-      <h1 style="text-align: center" data-translate="hobbiesTitle">Mivel töltöm a szabadidőm?</h1>
-      <div id="hobbies" class="logo-container">
+      <h1 id="hobbies"  style="text-align: center" data-translate="hobbiesTitle">Mivel töltöm a szabadidőm?</h1>
+      <div class="logo-container">
         <div class="image-container" data-alt="Biciklizés" data-translate="cycling">
           <img
             class="logo-activity hiddenanimation"
@@ -362,8 +381,8 @@
         </div>
       </div>
       
-      <h1 style="text-align: center" data-translate="downloadTitle">Letöltés</h1>
-      <div id="download" class="download-section">
+      <h1 id="download"  style="text-align: center" data-translate="downloadTitle">Letöltés</h1>
+      <div class="download-section">
         <div class="download-container">
           <h2 data-translate="resumeLabel">önéletrajz</h2>
           <div id="qrcode"></div>
@@ -385,6 +404,9 @@
           x.className += " responsive";
         } else {
           x.className = "topnav";
+        }
+        if (typeof updateNavScrollOffset === "function") {
+          requestAnimationFrame(updateNavScrollOffset);
         }
       }
     </script>
