@@ -31,7 +31,7 @@ const translations = {
   
       // Munkatapasztalat
       ittszabadTitle: "Termékfelelős / e2e implementáció",
-      ittszabadDesc: "Web/mobilalkalmazás folyamatainak kialakítása és implementálása az alkalmazásba. Alkalmazás tesztelése/publikálása.",
+      ittszabadDesc: '<a href="https://ittszabad.hu" class="card-link" target="_blank" rel="noopener noreferrer">ittszabad.hu</a> web/mobilalkalmazás üzleti és technikai tervezése/implementálása. Tesztelés/publikálás.',
       wecanTitle: "Termékfelelős / Tesztcsapat vezető",
       wecanDesc: "Dubaji székhelyű streaming szolgáltató (agilis) fejlesztéseinek, valamint automatizált teszteléseinek koordinálása.",
       mvmTitle: "Üzleti elemző / Projekt menedzser",
@@ -106,8 +106,8 @@ const translations = {
       footerText: "Copyright © 2024 Szepesvári Bence. All Rights Reserved.",
   
       // Work Experience
-      ittszabadTitle: "Product Owner / End-to-End Implementation",
-      ittszabadDesc: "Design and implementation of web/mobile application workflows within the application. Application testing and publishing.",
+      ittszabadTitle: "Product Owner / end-to-end implementation",
+      ittszabadDesc: 'Business and technical design/implementation of <a href="https://ittszabad.hu" class="card-link" target="_blank" rel="noopener noreferrer">ittszabad.hu</a> web/mobile application. Testing and publishing.',
       wecanTitle: "Product owner / Test-team lead",
       wecanDesc: "Coordinating agile development and automated testing for a Dubai-based streaming service.",
       mvmTitle: "Business analyst / Project manager",
